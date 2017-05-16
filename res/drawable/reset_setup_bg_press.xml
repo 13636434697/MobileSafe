@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--画一个形状，长方形-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!--渐变的颜色开始和结束的颜色，angle必须是45的倍数，修改颜色渐变起始点和结束点，颜色渐变的角度-->
+    <gradient
+        android:startColor="#ccc"
+        android:endColor="#ccc"
+        android:angle="135"/>
+
+    <!--控件的内间距-->
+    <padding android:left="3dp"
+        android:top="3dp"
+        android:right="3dp"
+        android:bottom="3dp" />
+
+    <!--长方形的圆角矩形（当前矩形的内切圆）-->
+    <corners android:radius="8dp" />
+</shape>

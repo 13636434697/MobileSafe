@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 将对应属性抽取到样式中去 -->
+
+    <TextView style="@style/TitleStyle"
+        android:text="功能列表" />
+    <!-- android:ellipsize="end"添加省略点的所在位置 -->
+    <!-- 想让文字出现跑马灯效果,必须让其获取焦点 -->
+    <!-- android:marqueeRepeatLimit="marquee_forever"一直滚动属性 -->
+    <!-- 自定义控件达到滚动效果(其实就是重新原有的TextView,让其一直能够获取焦点即可) -->
+
+    <!--这个html的方法，虽然能实现，但是比较麻烦-->
+    <!-- <TextView
+	    android:text="秋天秋天悄悄过去,留下小秘密,啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
+	    android:textColor="#000"
+	    android:singleLine="true"
+	    android:padding="5dp"
+	    省略号的所在位置，这个是跑马灯的属性，但是没有焦点，不会滚动
+	    android:ellipsize="marquee"
+	    设置焦点
+	    android:focusable="true"
+	    设置焦点。手触摸的时候也可以获取焦点，需要和上面结合使用
+	    android:focusableInTouchMode="true"
+	    //跑马灯，限制的值，一直滚动的值
+	    android:marqueeRepeatLimit="marquee_forever"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"/> -->
+
+    <!--使用自定义控件，功能和上面的textView是一样的，这样省下了很多代码-->
+    <com.xu.mobilesafe.view.FocusTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:text="秋天秋天悄悄过去,留下小秘密,啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
+        android:textColor="#000" >
+    </com.xu.mobilesafe.view.FocusTextView>
+
+    <!--广告-->
+    <LinearLayout
+        android:id="@+id/adLayout"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+    </LinearLayout>
+
+    <!--android:numColumns指定列数  -->
+    <!-- android:verticalSpacing="10dp"指定内部条目竖直方向间距为10dp -->
+    <GridView
+        android:id="@+id/gv_home"
+        android:numColumns="3"
+        android:verticalSpacing="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </GridView>
+
+</LinearLayout>

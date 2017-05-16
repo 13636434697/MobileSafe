@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/launcher_bg"
+    tools:context=".activity.SplashActivity" >
+
+
+    <!-- android:shadowRadius="5"阴影所在范围,在X轴和Y轴右下偏移1个像素，shadowColor阴隐的颜色-->
+    <TextView
+        android:id="@+id/tv_version_name"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowColor="#f00"
+        android:shadowRadius="1"
+        android:textSize="16sp"
+        android:text="版本名称" />
+	<ProgressBar 
+	    android:layout_below="@id/tv_version_name"
+	    android:layout_centerHorizontal="true"
+	    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

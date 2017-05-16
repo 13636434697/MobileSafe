@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xu.mobilesafe"
+    android:versionCode="1"
+    android:versionName="1.0.0">
+
+    <!-- android:versionCode 本地应用版本号1,版本号是2,有必要提示用户更新 -->
+    <!--
+         android:versionName="1.0"
+            2.1.1:
+            最后的一位:代表修复原有版本的bug
+            倒数第二位:更新部分功能
+            第一位:项目重大更新(代码重构,大部分功能添加,界面整体修改)
+    -->
+    <!--&lt;!&ndash;junit测试需要配置的&ndash;&gt;-->
+    <!--<instrumentation-->
+        <!--android:name="android.test.InstrumentationTestRunner"-->
+        <!--android:targetPackage="com.xu.mobilesafe" />-->
+
+
+    <!-- android:theme="@android:style/Theme.Light.NoTitleBar" -->
+    <!-- android:theme="@android:style/Theme.Light.NoTitleBar" -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- //获取准确GPS坐标的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" /> <!-- //允许模拟器模拟位置坐标的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- //获取粗略坐标的权限(网络定位时使用) -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- 在窗体上挂在view的权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- 去电广播监听的权限 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <!-- 拦截电话需要用到的权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <!-- 杀死后台进程的权限 -->
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <!--在工程中会有提示，但是错误提示里面是没有的-->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+    <!-- root手机 -->    <!--这个方法需要，权限，但是这个权限只有系统才能用的（需要root），所以要换一个方法-->
+    <!-- <uses-permission android:name="android.permission.DELETE_CACHE_FILES" /> -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 以下为可选权限 -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+    <!-- //获取粗略坐标的权限(网络定位时使用) -->
+    <application
+        android:name=".global.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!--&lt;!&ndash;junit测试需要配置的&ndash;&gt;-->
+        <!--<uses-library android:name="android.test.runner" />-->
+        <activity
+            android:name=".activity.SplashActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--因为通过这个去开启一个应用（隐士意图）-->
+        <activity android:name=".activity.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.TestActivity" />
+        <activity android:name=".activity.SetupOverActivity" />
+        <activity android:name=".activity.Setup1Activity" />
+        <activity android:name=".activity.Setup2Activity" />
+        <activity android:name=".activity.Setup3Activity" />
+        <activity android:name=".activity.Setup4Activity" />
+        <activity android:name=".activity.ContactListActivity" />
+        <activity android:name=".activity.AToolActivity" />
+        <activity android:name=".activity.QueryAddressActivity"/>
+        <activity android:name=".activity.ToastLocationActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".activity.BlackNumberActivity" />
+        <activity android:name=".activity.AppManagerActivity" />
+        <activity android:name=".activity.ProcessManagerActivity" />
+        <activity android:name=".activity.ProcessSettingActivity" />
+        <activity android:name=".activity.CommonNumberQueryActivity" />
+        <activity android:name=".activity.AppLockActivity" />
+        <!--模式为单个任务的任务站，
+        在挂起引用里面，隐藏应用的图标，true是不要开启最近应用的图标-->
+        <activity android:name=".activity.EnterPsdActivity"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"/>
+        <activity android:name=".activity.AnitVirusActivity" />
+        <activity android:name=".activity.BaseCacheClearActivity" />
+        <activity android:name=".activity.SDCacheClearActivity" />
+        <activity android:name=".activity.TrafficActivity" />
+
+
+        <receiver android:name=".receiver.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.SmsReceiver">
+            <intent-filter>
+                <!-- 为了去关联系统短信的广播对应过滤条件,先将编译版本改为4.1.2 -->
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.xu.mobilesafe.receiver.KillProcessReceiver" >
+            <intent-filter>
+                <!-- 为了去关联系统短信的广播对应过滤条件,先将编译版本改为4.1.2 -->
+                <action android:name="android.intent.action.KILL_BACKGROUND_PROCESS" />
+            </intent-filter>
+        </receiver>
+
+        <!--&lt;!&ndash;设备管理器的配置&ndash;&gt;-->
+        <!--<receiver android:name=".receiver.DeviceAdmin"-->
+            <!--android:label="@string/sample_device_admin"-->
+            <!--android:description="@string/sample_device_admin_description"-->
+            <!--android:permission="android.permission.BIND_DEVICE_ADMIN">-->
+            <!--<meta-data android:name="android.app.device_admin"-->
+                <!--android:resource="@xml/device_admin_sample" />-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <receiver
+            android:name=".receiver.DeviceAdmin"
+            android:enabled="false"
+            android:exported="false" />
+
+
+        <!--广播接受者的类名，还需要自定一个资源文件-->
+        <receiver android:name="com.xu.mobilesafe.receiver.MyAppWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/process_widget_provider" />
+        </receiver>
+
+        <service android:name=".service.LocationService" />
+        <service android:name=".service.AddressService" />
+        <service android:name=".service.BlackNumberService" />
+        <service android:name=".service.UpdateWidgetService" />
+        <service android:name=".service.WatchDogService" />
+
+
+
+        <activity
+            android:name="net.youmi.android.AdBrowser"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+
+        <service
+            android:name="net.youmi.android.AdService"
+            android:exported="false" >
+        </service>
+
+        <receiver android:name="net.youmi.android.AdReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--上一页移入的动画-->
+<!-- -100%p 负一屏幕的宽度大小值 -->
+<translate
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="-100%p"
+    android:toXDelta="0"
+    android:duration="500">
+</translate>
